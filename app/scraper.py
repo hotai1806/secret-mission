@@ -32,8 +32,9 @@ def fetch_list_sections():
         return []
     sections = response.json().get('sections', [])
     
-
-    return response.json()['sections']
+    skips_articles = 11 # Skip articles not related
+    print(sections)
+    return sections[skips_articles:]
 
 
 @log_decorator
@@ -72,7 +73,7 @@ def iter_all_articles(limit=None):
 @log_decorator
 def get_all_articles():
 
-    for raw, section_name in iter_all_articles():
+    for raw, section_name in iter_all_articles(35):
         # a = html_to_markdown(raw["body"])
         save_file(article=raw)
 
