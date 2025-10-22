@@ -2,10 +2,10 @@ import os
 import requests
 from dotenv import load_dotenv
 
-from logger import log_decorator
-from tool import  html_to_markdown, save_file
+from app.logger import log_decorator
+from app.tool import  save_file
 
-load_dotenv() 
+load_dotenv()
 
 api_key = os.getenv("API_KEY")
 DOMAIN_TARGET = os.getenv("DOMAIN_TARGET") or "https://support.optisigns.com/"
@@ -33,7 +33,6 @@ def fetch_list_sections():
     sections = response.json().get('sections', [])
     
     skips_articles = 11 # Skip articles not related
-    print(sections)
     return sections[skips_articles:]
 
 
@@ -71,13 +70,14 @@ def iter_all_articles(limit=None):
             yield raw, section["name"]
 
 @log_decorator
-def get_all_articles():
+def save_all_articles():
+    """
+    Fetch all articles and save to folder articles
 
+    Returns:
+        None
+    """
     for raw, section_name in iter_all_articles(35):
-        # a = html_to_markdown(raw["body"])
         save_file(article=raw)
 
 
-
-
-get_all_articles()

@@ -3,7 +3,7 @@ import logging
 import traceback
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s: %(message)s')
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s [main]: %(message)s')
 
 def log_decorator(func):
     @functools.wraps(func)

@@ -1,6 +1,8 @@
-# scraper/html_to_md.py
+"""
+    Description: Handle file
+"""
+
 from html2text import HTML2Text
-from bs4 import BeautifulSoup
 from slugify import slugify
 import os
 
