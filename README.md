@@ -2,7 +2,7 @@
 
 ### Overview
 
-This repo contains a minimal OptiBot Mini-Clone pipeline that:
+This repo contains a minimal Bot reply by finding knowledge in vector store:
 
 1. Scrapes ≥30 support articles from **support.optisigns.com**
 2. Converts them into clean Markdown (slug-based filenames)
