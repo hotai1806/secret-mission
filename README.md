@@ -26,7 +26,11 @@ cp .env.sample .env
 
 ```bash
 docker build -t optibot-mini .
-docker run --rm --env-file .env optibot-mini:latest python main.py
+docker run --rm \
+  --env-file .env \
+  -v "$(pwd)/optibot.json:/app/optibot.json" \
+  optibot-mini:latest python main.py
+
 ```
 
 This triggers:

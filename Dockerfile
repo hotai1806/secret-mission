@@ -17,4 +17,4 @@ COPY . .
 
 
 
-CMD ["python", "main"]
+CMD ["python", "main.py"]
