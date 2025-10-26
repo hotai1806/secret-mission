@@ -26,7 +26,7 @@ cp .env.sample .env
 
 ```bash
 docker build -t optibot-mini .
-docker run --rm -e OPENAI_API_KEY=$OPENAI_API_KEY optibot-mini:latest python main.py
+docker run --rm --env-file .env optibot-mini:latest python main.py
 ```
 
 This triggers:
